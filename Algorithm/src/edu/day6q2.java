@@ -1,6 +1,7 @@
 package edu;
 
 import java.awt.Point;
+import java.util.Random;
 import java.util.Scanner;
 
 public class day6q2 {
@@ -8,28 +9,35 @@ public class day6q2 {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		int m, n;
-		Point[] P = new Point[3];
+		int l;
+		Random rd= new Random();
 		Scanner sc = new Scanner(System.in);
 		
-		for(int i = 0; i<3; i++) {
-			P[i] = new Point();
-		}
 		
 		
-		P[0].setLocation(4, 0);
-		P[1].setLocation(2, 1);
-		P[2].setLocation(1, 3);
-		
-		System.out.println("이 프로그램은 입력한 m, n 의 크기를 가진 교차로를 생성하여 최단 거리 갯수를 구하는 프로그램입니다.");
-		System.out.println("m, n 을 입력하세요.(1이상)");
+		System.out.println("이 프로그램은 입력한 m, n 의 크기를 가진 교차로를 생성하여 l개의 장애물을 통과하지 않는 최단 거리 갯수를 구하는 프로그램입니다.");
+		System.out.println("m, n, l 을 입력하세요.(1이상)");
 		m=sc.nextInt();
 		n=sc.nextInt();
+		l=sc.nextInt();
 		while(m<=0 || n<=0) {
 			System.out.println("조건에 맞는 수가 아닙니다 다시 입력해주세요.");
 			m=sc.nextInt();
 			n=sc.nextInt();
+			l=sc.nextInt();
 		}
 
+		Point[] P = new Point[l];
+		
+		for(int i = 0; i<l; i++) {
+			P[i] = new Point();
+			P[i].x = rd.nextInt(m);
+			P[i].y = rd.nextInt(n);
+			System.out.print("( " + P[i].x + ", " + P[i].y + ") ");
+		}
+
+		System.out.println();
+		System.out.println();
 		
 		int count = getSway(m, n, P);
 		
@@ -37,37 +45,31 @@ public class day6q2 {
 	}
 
 	public static int getSway(int m, int n, Point[] p) {
-		int[][] A = new int[m+2][n+2];
-		A[0][0] = 0;
+		int[][] A = new int[m+1][n+1];
 		
-		for(int i = 1; i<=m+1; i++) {
-			A[i][0] = 1;
-			System.out.println(A[i][0]);
-		}
-		for(int i = 1; i<=n+1; i++) {
-			A[0][i] = 1;
-		}
-		
-		for(int j = 1; j<=n+1; j++) {
-			for(int i = 1; i<=m+1; i++) {
-				System.out.print(A[i][j]+" ");
-			}
-			System.out.println();
-		}
-		
-		
-		for(int i = 1; i<=m; i++) {
-			for(int j = 1; j<=n; j++) {
+		for(int j = 0; j<n+1; j++) {
+			for(int i = 0; i<m+1; i++) {
 				for(int l = 0; l<p.length; l++) {
-					if(i == p[l].x && j == p[l].y) A[i][j] = 0;
-					else A[i][j] = A[i-1][j] + A[i][j];
-					
-					
+					if(i == p[l].x && j == p[l].y) {
+						A[i][j] = 0;
+						break;
+					}
+					else if(i == 0 && j == 0) A[i][j] = 0;
+					else if(i == 0) A[i][j] = 1;
+					else if(j == 0) A[i][j] = 1;
+					else A[i][j] = A[i-1][j] + A[i][j-1];
 				}
-				//System.out.print(A[i][j]+" ");
+				
+			}
+		}
+		
+		for(int j = 0; j<n+1; j++) {
+			for(int i = 0; i<m+1; i++) {
+				System.out.print(A[i][j]+"	 ");
 			}
 			System.out.println();
 		}
+		
 		
 		return A[m][n];
 	}
