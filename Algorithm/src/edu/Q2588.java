@@ -6,17 +6,23 @@ import java.io.InputStreamReader;
 public class Q2588 {
 
 	public static void main(String[] args) throws Exception {
-		int x, y;
+		int x, a, b, c;
+		int sum = 0;
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		
 		x = Integer.parseInt(br.readLine());
-		String str[] = br.readLine();
-		y = Integer.parseInt(str);
+		String str[] = br.readLine().split("");
+		a = x*Integer.parseInt(str[2]);
+		b = x*Integer.parseInt(str[1]);
+		c = x*Integer.parseInt(str[0]);
 		
-		System.out.println(x*Integer.parseInt(str[2]));
-		System.out.println();
-		System.out.println();
-		System.out.println();
+		sum = a + b*10 + c*100;
+		
+		
+		System.out.println(a);
+		System.out.println(b);
+		System.out.println(c);
+		System.out.println(sum);
 	}
 
 }
