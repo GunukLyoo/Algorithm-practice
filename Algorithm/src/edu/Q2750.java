@@ -5,7 +5,7 @@ import java.io.BufferedWriter;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 
-public class Q2675 {
+public class Q2750 {
 
 	public static void main(String[] args) throws Exception {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -13,26 +13,30 @@ public class Q2675 {
 		int n;
 		int c = 0;
 		int x;
-		int len;
 		
 		n = Integer.parseInt(br.readLine());
+		int[] arr = new int[n];
 		
 		while(c<n) {
-			String[] arr = br.readLine().split(" ");
-			len = Integer.parseInt(arr[0]);
-			String[] str = arr[1].split("");
-			
-			for(int i = 0; i < str.length; i++) {
-				for(int j = 0; j < len; j++) {
-					bw.write(str[i]);
-				}
-			}
-			bw.write("\n");
-			bw.flush();
-			
+			arr[c] = Integer.parseInt(br.readLine());
 			c = c + 1;
 		}
 		
+		for(int i = 0; i < n; i++) {
+			for(int j = i + 1; j < n; j++) {
+				if(arr[i]>arr[j]) {
+					x = arr[i];
+					arr[i] = arr[j];
+					arr[j] = x;
+				}
+			}
+		}
+		
+		for(int i = 0; i < n; i++) {
+			bw.write(Integer.toString(arr[i]) + "\n");
+		}
+
 		bw.close();
 	}
+
 }
