@@ -11,12 +11,25 @@ public class Q1152 {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
 		String c;
+		int n;
 		
 		String[] arr = br.readLine().split(" ");
-		if(arr[0].equals("")) c = Integer.toString(arr.length-1);
-		else c = Integer.toString(arr.length);		
+		n = arr.length;
+		if(n!=0) {
+			String[] arr1 = new String[n-1];
+			if(arr[0].equals("")) {
+				for(int i = 1; i < n; i++) {
+					arr1[i-1] = arr[i];
+				}
+				c = Integer.toString(arr1.length);
+			}
+			else c = Integer.toString(arr.length);
+		}
+		else {
+			c = "0";
+		}
 	
-		bw.write(arr[1]);
+		bw.write(c + "\n");
 		bw.close();
 	}
 }

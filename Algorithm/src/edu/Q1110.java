@@ -23,18 +23,19 @@ public class Q1110 {
 		while(start != x) {
 			if(c==0) arr = Integer.toString(start).split("");
 			else arr = Integer.toString(x).split("");
-			y = Integer.parseInt(arr[0])+Integer.parseInt(arr[1]);
-			if(y>=10) {
+		
+			if(arr.length==2) {
+				y = Integer.parseInt(arr[0])+Integer.parseInt(arr[1]);
 				arr1 = Integer.toString(y).split("");
 				x = Integer.parseInt(arr[1]) * 10 + Integer.parseInt(arr1[1]) ;
 			}
 			else {
-				arr1 = ("0" + Integer.toString(y)).split("");
-				x = Integer.parseInt(arr[1]) * 10 + Integer.parseInt(arr1[1]);
+				arr1 = ("0" + arr[0]).split("");
+				x = Integer.parseInt(arr[0]) * 10 + Integer.parseInt(arr1[1]);
 			}
 			c = c + 1;
-			bw.write(arr[0]+ arr[1] + " " + arr1[0] + arr1[1] + "\n");
-			bw.flush();
+			//bw.write(arr[0]+ arr[1] + " " + arr1[0] + arr1[1] + "\n");
+			//bw.flush();
 		}
 		bw.write(c + "\n");	
 		bw.close();
