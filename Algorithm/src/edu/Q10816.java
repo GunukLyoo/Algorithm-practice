@@ -5,40 +5,29 @@ import java.io.BufferedWriter;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.util.Arrays;
+import java.util.HashMap;
 
 public class Q10816 {
-	
-	public static int binarySearch(int[] arr, int x) {
-		
-		int start= 0;
-		int end= arr.length-1;
-		int mid= (end+start)/2;
-
-		while(end-start>= 0){
-			if(arr[mid]== x){
-				return 1;
-			}else if(arr[mid]<= x){
-	 			start= mid+1;
-			}else{
-				end= mid-1;
-	 		}
-	 		mid= (end+start)/2;
-	 	}
-	 	return 0;
-	}
 
 	public static void main(String[] args) throws Exception {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
 		int n, m;
 		int c = 0;
+		int x;
 		
 		n = Integer.parseInt(br.readLine());
 		int[] arr = new int[n];
+		HashMap<Integer, Integer> cmap = new HashMap<>();
 		
 		String[] str = br.readLine().split(" ");
 		while(c<n) {
 			arr[c] = Integer.parseInt(str[c]); 
+			if(cmap.containsKey(arr[c])) {
+				x = cmap.get(arr[c]) + 1;
+				cmap.replace(arr[c], x);
+			}
+			else cmap.put(arr[c], 1);
 			c = c + 1;
 		}
 		Arrays.sort(arr);
@@ -53,7 +42,10 @@ public class Q10816 {
 		str = br.readLine().split(" ");
 		while(c<m) {
 			arr1[c] = Integer.parseInt(str[c]);
-			count[c] = o[arr1[c] - 1];
+			if(cmap.containsKey(arr1[c])) {
+				count[c] = cmap.get(arr1[c]);
+			}
+			else count[c] = 0;
 			c = c + 1;
 		}
 		
