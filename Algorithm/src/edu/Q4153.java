@@ -31,11 +31,8 @@ public class Q4153 {
 			}
 			right = max * max;
 			
-			bw.write(Integer.toString(left) + " " + Integer.toString(right) + "\n");
-			
 			if(left == right) bw.write("right\n");
 			else bw.write("wrong\n");
-			
 			
 			str = br.readLine().split(" ");
 			tri[0] = Integer.parseInt(str[0]);
