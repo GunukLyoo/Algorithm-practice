@@ -4,27 +4,26 @@ import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
-import java.util.Arrays;
 
-public class Q10809 {
+public class Q2908 {
 
 	public static void main(String[] args) throws Exception {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
-		int[] a = new int[26];
 		
-		Arrays.fill(a, -1);
-		char[] str = br.readLine().toCharArray();
+		String[] str = br.readLine().split(" ");
+		int n1;
+		int n2;
 		
-		for(int i = 0; i < str.length; i++) {
-			if(a[(byte)str[i]-97] == -1) a[(byte)str[i]-97] = i;
-		}
+		StringBuffer sb = new StringBuffer(str[0]);
+		n1 = Integer.parseInt(sb.reverse().toString());
+		sb = new StringBuffer(str[1]);
+		n2 = Integer.parseInt(sb.reverse().toString());
 		
-		for(int i = 0; i <a.length; i++) {
-			bw.write(Integer.toString(a[i]) + " ");
-		}
-		bw.close();
+		if(n1 > n2) bw.write(Integer.toString(n1));
+		else bw.write(Integer.toString(n2));
 
+		bw.close();
 	}
 
 }

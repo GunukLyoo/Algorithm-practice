@@ -4,27 +4,30 @@ import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
-import java.util.Arrays;
 
-public class Q10809 {
+public class Q25304 {
 
 	public static void main(String[] args) throws Exception {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
-		int[] a = new int[26];
+		int sum;
+		int c = 0;
+		int n;	
 		
-		Arrays.fill(a, -1);
-		char[] str = br.readLine().toCharArray();
+		sum = Integer.parseInt(br.readLine());
+		n = Integer.parseInt(br.readLine());
+		String[] str;
 		
-		for(int i = 0; i < str.length; i++) {
-			if(a[(byte)str[i]-97] == -1) a[(byte)str[i]-97] = i;
+		while(c<n) {
+			str = br.readLine().split(" ");
+			sum = sum -(Integer.parseInt(str[0]) * Integer.parseInt(str[1]));
+			c = c + 1;
 		}
 		
-		for(int i = 0; i <a.length; i++) {
-			bw.write(Integer.toString(a[i]) + " ");
-		}
+		if(sum == 0) bw.write("Yes");
+		else bw.write("No");
+		
 		bw.close();
-
 	}
 
 }
