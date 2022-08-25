@@ -11,25 +11,27 @@ public class Q11478 {
 	public static void main(String[] args) throws Exception {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
-		int count = 0;
-		int n = 1;
+		int i = 0;
+		int n = 0;
+		int c = 1;
 		
-		String[] str = br.readLine().split("");
-		String str1 = "";
+		String str = br.readLine();
 		HashMap<String, String> A = new HashMap<>();
 		
-		while(n<=str.length) {
-			for(int i = 0; i < str.length; i++) {
-				for(int j = i; j < i + n && i + n <= str.length; j++) {
-					str1 = str1 + str[j];
+		while(i < str.length()) {
+			while(n < str.length() && n+c <= str.length()) {
+				if(A.containsKey(str.substring(n, n+c)) == false){
+					A.put(str.substring(n, n+c), str);
 				}
-				A.put(str1, str1);
-				str1 = "";
+				n = n + 1;
 			}
-			n = n + 1;
+			
+			n = 0;
+			c = c + 1;
+			i = i + 1;
 		}
 		
-		bw.write(Integer.toString(A.size()-1));
+		bw.write(Integer.toString(A.size()));
 		bw.close();
 	}
 

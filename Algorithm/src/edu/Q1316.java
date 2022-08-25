@@ -15,14 +15,33 @@ public class Q1316 {
 		int count = 0;
 		int n = 0;
 		int c = 0;
-
-		Arrays.fill(end, false);
+		boolean check = true;
+		char[] str;
 		
 		n = Integer.parseInt(br.readLine());
 		
 		while(c < n) {
-			
+			str = br.readLine().toCharArray();
+			Arrays.fill(end, false);
+			for(int i = 1; i < str.length; i++) {
+				if(str[i-1] == str[i]) ;
+				else {
+					if(end[(byte)str[i]-97] == true) {
+						check = false;
+						break;
+					}
+					else if(end[(byte)str[i]-97] == false) {
+						end[(byte)str[i-1]-97] = true;
+					}
+				}
+			}
+			if(check == true) count = count + 1;
+			else check = true;
+			c = c + 1;
 		}
+		
+		bw.write(Integer.toString(count));
+		bw.close();
 	}
 
 }
