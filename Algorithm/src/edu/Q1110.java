@@ -10,33 +10,47 @@ public class Q1110 {
 
 	public static void main(String[] args) throws Exception {
 		int c = 0;
-		int start;
 		int x = 0;
-		int y;
+		int y = 0;
+		int start = 0;
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
 		
-		String[] arr;
-		String[] arr1;
-		start = Integer.parseInt(br.readLine());
+		String[] str = br.readLine().split("");
+		String[] str1;
+		start = Integer.parseInt(str[0]);
 		
-		while(start != x) {
-			if(c==0) arr = Integer.toString(start).split("");
-			else arr = Integer.toString(x).split("");
+		if(Integer.parseInt(String.valueOf(str)) < 10) {
+			x = 0;
+			y = Integer.parseInt(String.valueOf(str[0]));
+		}else {
+			x = Integer.parseInt(String.valueOf(str[0]));
+			y = Integer.parseInt(String.valueOf(str[1]));
+		}
 		
-			if(arr.length==2) {
-				y = Integer.parseInt(arr[0])+Integer.parseInt(arr[1]);
-				arr1 = Integer.toString(y).split("");
-				x = Integer.parseInt(arr[1]) * 10 + Integer.parseInt(arr1[1]) ;
-			}
-			else {
-				arr1 = ("0" + arr[0]).split("");
-				x = Integer.parseInt(arr[0]) * 10 + Integer.parseInt(arr1[1]);
+		bw.write(Integer.toString(start));
+		
+		/*str = Integer.toString(x + y).toCharArray();
+		str[0] = (char)y;
+		c = 1;
+		
+		bw.write(str);
+		bw.flush();
+		
+		while(start != Integer.parseInt(String.valueOf(str))) {
+			x = Integer.parseInt(String.valueOf(str[0]));
+			y = Integer.parseInt(String.valueOf(str[1]));
+			if(x+y<10) {
+				str[0] = str[1];
+				str[1] = (char)(x+y);
+			}else {
+				str[0] = str[1];
+				str1 = Integer.toString(x+y).toCharArray();
+				str[1] = str1[1];
 			}
 			c = c + 1;
-			//bw.write(arr[0]+ arr[1] + " " + arr1[0] + arr1[1] + "\n");
-			//bw.flush();
 		}
+		*/
 		bw.write(c + "\n");	
 		bw.close();
 	}
