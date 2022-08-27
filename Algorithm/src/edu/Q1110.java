@@ -20,12 +20,12 @@ public class Q1110 {
 		String[] str1;
 		start = Integer.parseInt(str[0]);
 		
-		if(Integer.parseInt(String.valueOf(str)) < 10) {
+		if(Integer.parseInt(str[0]+str[1]) < 10) {
 			x = 0;
-			y = Integer.parseInt(String.valueOf(str[0]));
+			y = Integer.parseInt(str[0]);
 		}else {
-			x = Integer.parseInt(String.valueOf(str[0]));
-			y = Integer.parseInt(String.valueOf(str[1]));
+			x = Integer.parseInt(str[0]);
+			y = Integer.parseInt(str[1]);
 		}
 		
 		bw.write(Integer.toString(start));
