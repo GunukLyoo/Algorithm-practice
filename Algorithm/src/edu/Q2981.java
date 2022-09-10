@@ -4,10 +4,7 @@ import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
 
 public class Q2981 {
 	
@@ -38,25 +35,24 @@ public class Q2981 {
 		int n = Integer.parseInt(br.readLine());
 		int[] arr = new int[n];
 		int balance = 0;
+		int max = 0;
 		
 		for(int i = 0; i < n; i++) {
 			arr[i] = Integer.parseInt(br.readLine());
 		}
 		Arrays.sort(arr);
 		
-		List<Integer> arr1 = new ArrayList<Integer>();
-		
-		for(int i = 0; i <= arr[0]; i++) {
+		for(int i = arr[0]; i >= 0; i--) {
 			balance = gcd_n(arr, i);
-			if(balance != 1 && arr1.contains(balance) != true) arr1.add(balance);
+			if(balance != 1) {
+				max = balance;
+				break;
+			}
 		}
 		
-		Collections.sort(arr1);
-		
-		for(int i = 0; i < arr1.size(); i++) {
-			bw.write(Integer.toString(arr1.get(i)) + " ");
+		for(int i = 2; i <= max; i++) {
+			if(max % i == 0) bw.write(Integer.toString(i) + " ");
 		}
-		
 		bw.close();
 
 	}
