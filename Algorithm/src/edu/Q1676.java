@@ -19,13 +19,14 @@ public class Q1676 {
 			x = i;
 			while(x % 2 == 0) {
 				n2 = n2 + 1;
-				x = x % 2;
+				x = x / 2;
 			}
 			
 			while(x % 5 == 0) {
 				n5 = n5 + 1;
-				x = x % 5;
+				x = x / 5;
 			}
+			
 			
 		}
 		
