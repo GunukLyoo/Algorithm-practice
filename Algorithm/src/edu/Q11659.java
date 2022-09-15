@@ -16,11 +16,13 @@ public class Q11659 {
 			}
 			return sum;
 		}else {
-			for(int i = 0; i < x; i++) {
-				sum += arr[i];
+			if(x != 1) {
+				for(int i = 0; i < x-1; i++) {
+					sum += arr[i];
+				}
 			}
 			
-			for(int i = y-1; y < arr.length; i++) {
+			for(int i = y; i < arr.length; i++) {
 				sum += arr[i];
 			}
 			return total - sum;
