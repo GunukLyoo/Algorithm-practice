@@ -11,9 +11,9 @@ public class Q2559 {
 		int sum = 0;
 		int max = 0;
 		int x = 0;
-		int y = m;
+		int y = m-1;
 		
-		if(m <= arr.length/2) {
+		/*if(m <= arr.length/2) {
 			while(y <= arr.length) {
 				for(int i = x; i < y; i++) {
 					sum = sum + arr[i];
@@ -46,7 +46,20 @@ public class Q2559 {
 				sum = 0;
 			}
 			return max;
+		}*/
+		for(int i = x; i <= y; i++) {
+			sum = sum + arr[i];
 		}
+		max = sum;
+		x = x + 1;
+		y = y + 1;
+		while(y < arr.length) {
+			sum = sum - arr[x-1] + arr[y];
+			if(max < sum) max = sum;
+			x = x + 1;
+			y = y + 1;
+		}
+		return max;
 	}
 
 	public static void main(String[] args) throws Exception {
