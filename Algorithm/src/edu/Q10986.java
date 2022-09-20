@@ -16,8 +16,8 @@ public class Q10986 {
 		int[] arrn = new int[n];
 		int count = 0;
 		int sum = 0;
-		int k = 0;
-		int j = 0;
+		int start = 0;
+		int end = 0;
 		
 		arr = br.readLine().split(" ");
 		for(int i = 0; i < n; i++) {
@@ -25,20 +25,20 @@ public class Q10986 {
 		}
 
 		for(int i = 1; i <= n; i++) {
-			
-			while(k <= n) {
-				
-				for(j = k; j < j + i && j + i <= n; j++) {
+			end = start + i;
+			while(end <= n) {
+				for(int j = start; j < end; j++) {
 					sum = sum + arrn[j];
 				}
-				k = j + i;
-				bw.write(Integer.toString(sum) + "\n");
-				bw.flush();
-			
+				
 				if(sum % m == 0) count = count + 1;
-			
+				
+				start = start + 1;
+				end = start + i;
 				sum = 0;
 			}
+			start = 0;
+			end = 0;
 		}
 		
 		bw.write(Integer.toString(count));
