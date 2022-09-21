@@ -16,29 +16,41 @@ public class Q10986 {
 		int[] arrn = new int[n];
 		int count = 0;
 		int sum = 0;
-		int start = 0;
-		int end = 0;
+		//int start = 0;
+		//int end = 0;
 		
 		arr = br.readLine().split(" ");
 		for(int i = 0; i < n; i++) {
 			arrn[i] = Integer.parseInt(arr[i]);
 		}
 
-		for(int i = 1; i <= n; i++) {
+/*		for(int i = 1; i <= n; i++) {
 			end = start + i;
 			while(end <= n) {
-				for(int j = start; j < end; j++) {
-					sum = sum + arrn[j];
+				if(start == 0) {
+					for(int j = 0; j < end; j++) {
+						sum = sum + arrn[j];
+					}
+				}else {
+					sum = sum - arrn[start - 1] + arrn[end-1];
 				}
 				
 				if(sum % m == 0) count = count + 1;
 				
 				start = start + 1;
 				end = start + i;
-				sum = 0;
 			}
+			sum = 0;
 			start = 0;
 			end = 0;
+		}*/
+		
+		for(int i = 0; i < n; i++) {
+			for(int j = i; j < n; j++) {
+				sum = sum + arrn[j];
+				if(sum % m == 0) count = count + 1;
+			}
+			sum = 0;
 		}
 		
 		bw.write(Integer.toString(count));
