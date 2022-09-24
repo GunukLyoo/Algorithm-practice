@@ -38,32 +38,33 @@ public class Q11660 {
 			c = c + 1;
 		}
 		
+		for(int i = 0; i < n; i++) {
+			bw.write(Arrays.toString(totalyn[i]) + "\n");
+		}
+		bw.flush();
+		
 		for(int i = 0; i < m; i++) {
 			arr = br.readLine().split(" ");
 			x1 = Integer.parseInt(arr[0]);
 			y1 = Integer.parseInt(arr[1]);
 			x2 = Integer.parseInt(arr[2]);
 			y2 = Integer.parseInt(arr[3]);
-			/*for(int j = y1 - 1; j < y2; j++) {
-				for(int k = x1 - 1; k < x2; k++) {
-					sum = sum + nn[k][j];
-				}
-			}*/
+		
 			if(x1 == x2 && y1 == y2) {
 				sum = nn[x1-1][y1-1];
 			}
 			else {
 			for(int j = x1-1 ; j < x2; j++) {
 				if(y1 == 1) {
-					sum = sum + totalyn[j][n-1];
+					sum = sum + totalyn[n-1][j];
 				}else {
-					sum = sum + totalyn[j][n-1];// - totalyn[j][y2 - 2];
+					sum = sum + totalyn[n-1][j] - totalyn[y1-2][j];
 				}
 			}
 			}
 			
 			bw.write(Integer.toString(sum) + "\n");
-			bw.flush();
+		
 			sum = 0;
 		}
 		bw.close();
