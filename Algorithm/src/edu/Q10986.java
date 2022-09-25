@@ -14,43 +14,20 @@ public class Q10986 {
 		int n = Integer.parseInt(arr[0]);
 		int m = Integer.parseInt(arr[1]);
 		int[] arrn = new int[n];
+		int[] sum = new int[m];
+		int s = 0;
 		int count = 0;
-		int sum = 0;
-		//int start = 0;
-		//int end = 0;
 		
 		arr = br.readLine().split(" ");
 		for(int i = 0; i < n; i++) {
 			arrn[i] = Integer.parseInt(arr[i]);
+			s = (s + arrn[i]) % m;
+			sum[s%m]++;
 		}
-
-/*		for(int i = 1; i <= n; i++) {
-			end = start + i;
-			while(end <= n) {
-				if(start == 0) {
-					for(int j = 0; j < end; j++) {
-						sum = sum + arrn[j];
-					}
-				}else {
-					sum = sum - arrn[start - 1] + arrn[end-1];
-				}
-				
-				if(sum % m == 0) count = count + 1;
-				
-				start = start + 1;
-				end = start + i;
-			}
-			sum = 0;
-			start = 0;
-			end = 0;
-		}*/
 		
-		for(int i = 0; i < n; i++) {
-			for(int j = i; j < n; j++) {
-				sum = sum + arrn[j];
-				if(sum % m == 0) count = count + 1;
-			}
-			sum = 0;
+		count = sum[0];
+		for(int i = 0; i < m; i++) {
+			count += (long) sum[i] * (sum[i]-1) / 2;
 		}
 		
 		bw.write(Integer.toString(count));
