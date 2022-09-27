@@ -6,6 +6,32 @@ import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.util.Arrays;
 
+class agename{
+	private int age;
+	private String name;
+	
+	public agename() {
+		age = 0;
+		name = "";
+	}
+	
+	public int getAge() {
+		return age;
+	}
+
+	public String getName() {
+		return name;
+	} 
+	
+	public void setAge(int age) {
+		this.age = age;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+}
+
 public class Q10814 {
 
 	public static void main(String[] args) throws Exception {
@@ -16,52 +42,29 @@ public class Q10814 {
 		
 		n = Integer.parseInt(br.readLine());
 		int[] num = new int[n];
-		String[][] arr = new String[n][2];
-		String[][] result = new String[n][2];
+		agename[] arr = new agename[n];
 		String[] str;
 		
 		while(c<n) {
 			str = br.readLine().split(" ");
-			arr[c][0] = str[0];
-			arr[c][1] = str[1];
-			num[c] = Integer.parseInt(str[0]);
+			arr[c] = new agename();
+			arr[c].setAge(Integer.parseInt(str[0]));
+			arr[c].setName(str[1]);
 			c = c + 1;
 		}
 		
-		Arrays.sort(num);
-		
-		for(int i = 0; i < n; i++) {
-			for(int j = 0; j < n; j++) {
-				if(num[i] == Integer.parseInt(arr[j][0])) {
-					result[i][0] = arr[j][0];
-					result[i][1] = arr[j][1];
-					arr[j][0] = "300";
-					break;
-				}
+		Arrays.sort(arr, (o1, o2) -> {
+			if(((agename) o1).getAge() != ((agename) o2).getAge()) {
+				return ((agename) o1).getAge() - ((agename) o2).getAge();
+			}else {
+				return 0;
 			}
-		}
-		
-		/*c = 0;
-		
-		while(c<n) {
-			min = Integer.parseInt(arr[0][0]);
-			mini = 0;
-			for(int j = 1; j < n; j++) {
-				if(min > Integer.parseInt(arr[j][0])) {
-					min = Integer.parseInt(arr[j][0]);
-					mini = j;
-				}
-			}
-			result[c][0] = arr[mini][0];
-			result[c][1] = arr[mini][1];
-			arr[mini][0] = "300";
-			c = c + 1;
-		}*/
+		});
 		
 		c = 0;
 		
 		while(c<n) {
-			bw.write(result[c][0] + " " + result[c][1] + "\n");
+			bw.write(Integer.toString(arr[c].getAge()) + " " + arr[c].getName() + "\n");
 			c = c + 1;
 		}		
 
