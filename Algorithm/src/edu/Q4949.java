@@ -5,7 +5,6 @@ import java.io.BufferedWriter;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.util.ArrayList;
-import java.util.Arrays;
 
 public class Q4949 {
 
@@ -13,52 +12,53 @@ public class Q4949 {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
 		String[] arr = br.readLine().split("");
-		int scount = 0;
-		int bcount = 0;
 		int x = 0;
-		int y = 0;
 		boolean check = true;
 		ArrayList<String> st = new ArrayList<>();
 		
 		while(!arr[0].equals(".")) {
 			for(String s: arr) {
-				if(s.equals("(")) st.add(s);
-				else if(s.equals(")")) st.add(s);
-				else if(s.equals("[")) st.add(s);
-				else if(s.equals("]")) st.add(s);
+				if(s.equals("(")) st.add("1");
+				else if(s.equals(")")) st.add("2");
+				else if(s.equals("[")) st.add("3");
+				else if(s.equals("]")) st.add("4");
 			}
 			
-			bw.write(st.toString());
-			bw.flush();
-			
-			x = 0;
-			while(x < st.size()-2) {
-				y = x + 1;
-				if() {
-					bw.write(st.get(x) + " " + st.get(x+1));
-					bw.flush();
+			if(st.size()%2 == 1) {
+				check = false;
+			}else {
+				x = 0;
+				while(st.size()!=0 && x < st.size()-1) {
+					if(st.get(x) == "1" && st.get(x+1) == "2") {
+						st.remove(x+1);
+						st.remove(x);
+						if(x!=0) x = x - 1;
+					}else if(st.get(x) == "3" && st.get(x+1) == "4") {
+						st.remove(x+1);
+						st.remove(x);
+						if(x!=0) x = x - 1;
+					}else if(st.get(x) == "1" && st.get(x+1) == "4") {
+						check = false;
+						break;
+					}else if(st.get(x) == "3" && st.get(x+1) == "2") {
+						check = false;
+						break;
+					}else if(st.get(x) == "2") {
+						check = false;
+						break;
+					}else if(st.get(x) == "4") {
+						check = false;
+						break;
+					}else {
+						x = x + 1;
+					}
 				}
-				x = x + 1;
-				bw.write(st.toString() + "\n");
-				bw.flush();
 			}
-			
-			/*for(char c : arr) {
-				if(scount < 0 || bcount<0) break;
-				
-				if(c == '(') scount = scount + 1;
-				else if(c == ')') scount = scount - 1;
-				else if(c == '[') bcount = bcount + 1;
-				else if(c == ']') bcount = bcount - 1;
-			}*/
-			
-			//if(scount == 0 && bcount == 0) bw.write("YES\n");
+
 			if(check == true) bw.write("YES\n");
 			else bw.write("NO\n");
 			bw.flush();
 			
-			scount = 0;
-			bcount = 0;
 			check = true;
 			arr = br.readLine().split("");
 			st.clear();
