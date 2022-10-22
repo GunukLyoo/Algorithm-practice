@@ -8,36 +8,37 @@ import java.util.ArrayList;
 
 public class Q18258 {
 	static ArrayList<Integer> stack = new ArrayList<>();
+	static StringBuilder sb = new StringBuilder();
 	
 	public static void push(int num) {
 		stack.add(num);
 	}
 	
-	public static void pop(BufferedWriter bw) throws Exception{
-		if(stack.isEmpty()) bw.write("-1\n");
+	public static void pop(BufferedWriter bw){
+		if(stack.isEmpty()) sb.append("-1\n");
 		else {
-			bw.write(Integer.toString(stack.get(0)) + "\n");
+			sb.append(Integer.toString(stack.get(0)) + "\n");
 			stack.remove(0);
 		}
 	}
 	
-	public static void size(BufferedWriter bw) throws Exception{
-		bw.write(Integer.toString(stack.size())+ "\n");
+	public static void size(BufferedWriter bw){
+		sb.append(Integer.toString(stack.size())+ "\n");
 	}
 	
-	public static void empty(BufferedWriter bw) throws Exception{
-		if(stack.isEmpty()) bw.write("1\n");
-		else bw.write("0\n");
+	public static void empty(BufferedWriter bw){
+		if(stack.isEmpty()) sb.append("1\n");
+		else sb.append("0\n");
 	}
 	
-	public static void front(BufferedWriter bw) throws Exception{
-		if(stack.isEmpty()) bw.write("-1\n");
-		else bw.write(Integer.toString(stack.get(0))+ "\n");
+	public static void front(BufferedWriter bw){
+		if(stack.isEmpty()) sb.append("-1\n");
+		else sb.append(Integer.toString(stack.get(0))+ "\n");
 	}
 	
-	public static void back(BufferedWriter bw) throws Exception{
-		if(stack.isEmpty()) bw.write("-1\n");
-		else bw.write(Integer.toString(stack.get(stack.size()-1))+ "\n");
+	public static void back(BufferedWriter bw){
+		if(stack.isEmpty()) sb.append("-1\n");
+		else sb.append(Integer.toString(stack.get(stack.size()-1))+ "\n");
 	}
 
 	public static void main(String[] args) throws Exception {
@@ -62,8 +63,9 @@ public class Q18258 {
 				case "back": back(bw);
 							break;
 			}
-			bw.flush();
 		}
-
+		
+		bw.write(sb.toString());
+		bw.close();
 	}
 }
