@@ -18,7 +18,7 @@ public class Q2566 {
 		for(int i = 1; i <= 9; i++) {
 			str = br.readLine().split(" ");
 			for(int j = 1; j <= 9; j++) {
-				if(max < Integer.parseInt(str[j-1])) {
+				if(max <= Integer.parseInt(str[j-1])) {
 					max = Integer.parseInt(str[j-1]);
 					mi = i;
 					mj = j;
