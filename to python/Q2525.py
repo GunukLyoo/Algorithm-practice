@@ -7,6 +7,9 @@ if __name__ == "__main__":
         h = p/60
         m = p%60
         if(a==23):
-            a = (h-1)
+            if(b+m > 60):
+                h = h
+                m = m + b - 60
+            
             
     
