@@ -1,15 +1,11 @@
-
 if __name__ == "__main__":
-    a, b = map(int, input())
-    p = int(input())
+    h, m = map(int, input().split())
+    t = int(input())
 
-    if p >= 60:
-        h = p/60
-        m = p%60
-        if(a==23):
-            if(b+m > 60):
-                h = h
-                m = m + b - 60
-            
-            
-    
+    if m+t >= 60:
+        if(h + (m+t)/60) >= 24:
+            print(str(int((h + (m+t)/60)-24)) + " " + str((m+t)%60))
+        else:
+            print(str(int((h + (m+t)/60))) + " " + str((m+t)%60))
+    else:
+        print(str(h) + " " + str(m+t))
