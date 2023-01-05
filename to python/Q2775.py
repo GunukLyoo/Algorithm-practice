@@ -3,7 +3,24 @@ import sys
 if __name__ == "__main__":
 
     n = int(sys.stdin.readline())
+    sum = 0
+    maxk = 0
+    maxn = 0
+
+    num = list()
 
     for i in range(n):
-        x = int(sys.stdin.readline())
-        y = int(sys.stdin.readline())
+        a = list()
+        a.append(int(sys.stdin.readline()))
+        a.append(int(sys.stdin.readline()))
+        num.append(a)
+    
+
+    maxk = num[0][0]
+    maxn = num[0][1]
+
+    for i in range(1,n):
+        if maxk < num[i][0]:
+            maxk = num[i][0];
+	elif maxn < num[i][1]):
+            maxn = num[i][1];
