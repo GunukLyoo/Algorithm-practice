@@ -24,3 +24,12 @@ if __name__ == "__main__":
             maxk = num[i][0];
 	elif maxn < num[i][1]):
             maxn = num[i][1];
+
+    table = list()
+
+    for i in range(maxn+1):
+        a = list()
+        sum += 1
+        a.append(sum)
+
+    table.append(a)
