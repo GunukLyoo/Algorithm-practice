@@ -4,6 +4,7 @@ if __name__ == "__main__":
 
     n = int(sys.stdin.readline())
     c = 2
+    max = n
 
     prime = list()
     prime.append(False)
@@ -12,12 +13,6 @@ if __name__ == "__main__":
     for i in range(2, n+1):
         prime.append(True)
 
-    for i in range(n+1):
-        if(prime[i]):
-            for j in range(i*i, n+1, i):
-                prime[j] = False
-
-
     while n != 1:
         if n%c == 0:
             n /= c
@@ -25,7 +20,8 @@ if __name__ == "__main__":
         else:
             c += 1
             if prime[c] == True:
-                continue
+                for j in range(c*c, max+1, c):
+                    prime[j] = False
             else:
                 while prime[c] != False:
                     c += 1
