@@ -1,15 +1,24 @@
 import sys
-from primePy import primes
+import math
+
+def prime(x):
+    for i in range(2, int(math.sqrt(x)+1)):
+        if x % i == 0:
+            return False
+    return True
 
 if __name__ == "__main__":
 
     n = int(sys.stdin.readline())
-    c = 0
-    prime = primes.upto(n)
+    c = 2
+    max = n
 
     while n != 1:
-        if n%prime[c] == 0:
-            n /= prime[c]
-            print(prime[c])
+        if n%c == 0:
+            n /= c
+            print(c)
         else:
             c += 1
+            if prime(c) == False:
+                while prime(c) == False:
+                    c += 1
