@@ -1,23 +1,10 @@
 import sys
 
-def quick_sort(arr):
-    if len(arr) <= 1:
-        return arr
-    pivot = arr[len(arr) // 2]
-    lesser_arr, equal_arr, greater_arr = [], [], []
-    for num in arr:
-        if num < pivot:
-            lesser_arr.append(num)
-        elif num > pivot:
-            greater_arr.append(num)
-        else:
-            equal_arr.append(num)
-    return quick_sort(lesser_arr) + equal_arr + quick_sort(greater_arr)
-
 if __name__ == "__main__":
 
     m = int(sys.stdin.readline())
     arr1 = list()
+    dic = list()
     sum = 0
 
     for i in range(m):
@@ -25,8 +12,16 @@ if __name__ == "__main__":
         arr1.append(n)
         sum += n
 
-    arr1 = quick_sort(arr1)
+    dic = [[i, arr1.count(i)] for i in set(arr1)]
 
+    arr1.sort()
+
+    dic.sort(key = lambda x: x[1],reverse = True)
     
-    print(int(sum/m))
-    print(arr1[m/2])
+    print(round(sum/m))
+    print(arr1[int(m/2)])
+    if len(dic) == 1 or dic[0][1] != dic[1][1]:
+        print(dic[0][0])
+    else:
+        print(dic[1][0])
+    print(arr1[m-1] - arr1[0])
