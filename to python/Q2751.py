@@ -23,7 +23,8 @@ if __name__ == "__main__":
         n = int(sys.stdin.readline())
         arr1.append(n)
 
-    arr = quick_sort(arr1)
+    #arr = quick_sort(arr1)
+    arr1.sort()
 
     for i in range(m):
-        print(arr[i])
+        print(arr1[i])
