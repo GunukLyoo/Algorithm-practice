@@ -12,12 +12,14 @@ if __name__ == "__main__":
 
     for i in range(len(arr1)):
         if arr.count(arr1[i]) > 1:
-            while c < arr.count(arr1[i]):
+            while ind < len(arr):#arr.count(arr1[i]):
                 arr[arr.index(arr1[i], ind)] = id
-                ind = arr.index(arr1[i], ind) + 1
+                print(id)
+                ind = arr.index(arr1[i], ind)
         else:
             arr[arr.index(arr1[i])] = id
         id += 1
+        ind = 0
 
     for i in range(m):
         print(arr[i], end = ' ')
