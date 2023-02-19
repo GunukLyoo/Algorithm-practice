@@ -13,10 +13,14 @@ def fibo(Fn, n, c):
 if __name__ == "__main__":
 
     n = int(sys.stdin.readline())
-
+    Fn = [0 for i in range(n+1)]
+    Fn[1] = 1
+    
     if n == 0:
         total = 0
+    elif n == 1:
+        total = 1
     else:
-        total = fibo(1, n, 1)
+        total = fibo(Fn, n, 2)
 
     print(total)
