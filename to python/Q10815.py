@@ -8,9 +8,9 @@ if __name__ == "__main__":
     arr1 = list(map(int, sys.stdin.readline().split()))
 
     for i in range(m):
-        if arr.count(arr1[i])==0:
-            print("0", end=' ')
-        else:
+        if arr1[i] in arr:
             print("1", end=' ')
+        else:
+            print("0", end=' ')
     
     
