@@ -7,6 +7,8 @@ if __name__ == "__main__":
     m = int(sys.stdin.readline())
     arr1 = list(map(int, sys.stdin.readline().split()))
 
+    arr.sort()
+
     for i in range(m):
         if arr1[i] in arr:
             print("1", end=' ')
