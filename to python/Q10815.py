@@ -27,6 +27,7 @@ if __name__ == "__main__":
     arr.sort()
 
     for i in range(m):
+        res = binary_search(arr1[i], arr)
         if arr1[i] in arr:
             print("1", end=' ')
         else:
