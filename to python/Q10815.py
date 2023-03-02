@@ -28,9 +28,9 @@ if __name__ == "__main__":
 
     for i in range(m):
         res = binary_search(arr1[i], arr)
-        if arr1[i] in arr:
-            print("1", end=' ')
-        else:
+        if res == None:
             print("0", end=' ')
+        else:
+            print("1", end=' ')
     
     
