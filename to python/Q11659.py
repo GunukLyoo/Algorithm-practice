@@ -1,5 +1,22 @@
 import sys
 
+def xtoy(arr, x, y, total):
+    sum = 0
+		
+    if y-x+1 < arr.length/2:
+        for i in range(x-1, y):
+            sum = sum + arr[i]
+	return sum
+    else:
+        if x != 1:
+            for i in range(x-1):
+                sum += arr[i]
+			
+        for i in range(y, len(arr)):
+            sum += arr[i]
+
+	return total - sum;
+
 if __name__ == "__main__":
     arr = list(map(int, sys.stdin.readline().split()))
     arr1 = list(map(int, sys.stdin.readline().split()))
