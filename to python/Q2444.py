@@ -14,11 +14,8 @@ if __name__ == '__main__':
 
         arr.append(str1)
 
-    c = 2
-    
-    for i in range((n * 2) - 1):
-        if i <= 4:
-            print(arr[i])
-        else:
-            print(arr[5-c])
-            c += 1
+    for i in range(n):
+        print(arr[i])
+
+    for i in range(1,n):
+        print(arr[n-i-1])
