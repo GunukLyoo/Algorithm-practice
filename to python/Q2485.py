@@ -23,17 +23,14 @@ if __name__ == '__main__':
     for i in range(1,n):
         arr2.append(arr[i] - arr[i-1])
 
-    min = arr2[0]
-    max = arr2[0]
+    arr2.sort()
 
-    for i in range(1, len(arr2)):
-        if min > arr2[i]:
-            min = arr2[i]
-
-        if max < arr2[i]:
-            max = arr2[i]
-
-    maxp = maxprime(max, min)
+    for i in range(1,len(arr2)):
+        if i == 1:
+            maxp = maxprime(arr2[i-1], arr2[i])
+        else:
+            maxp = maxprime(maxp, arr2[i])
+    
 
     count = 0
 
