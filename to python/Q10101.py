@@ -13,10 +13,10 @@ if __name__ == '__main__':
     else:
         angle.sort()
 
-        if angle[0] == angle[1] or angle[1] == angle[2]:
-            print("Isosceles")
-        elif angle[0] == angle[1] and angle[1] == angle[2]:
+        if angle[0] == angle[1] and angle[1] == angle[2]:
             print("Equilateral")
+        elif angle[0] == angle[1] or angle[1] == angle[2]:
+            print("Isosceles")
         else:
             print("Scalene")
     
