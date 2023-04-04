@@ -12,11 +12,9 @@ if __name__ == '__main__':
 
     for i in range(n):
         if li[i] == "ENTER":
-            continue
+            li1 = list()
         else:
-            if check.count(li[i])==0:
-                check.append(li[i])
-                count += 1
+            li1.append(li[i])
 
     print(count)
                 
