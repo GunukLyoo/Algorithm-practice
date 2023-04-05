@@ -10,11 +10,27 @@ if __name__ == '__main__':
     check = list()
     count = 0
 
-    for i in range(n):
+    li1 = list()
+    li2 = list()
+
+    for i in range(1,n):
         if li[i] == "ENTER":
+            setl = set(li1)
+            del li1
+            li1 = list(setl)
+            li2.append(li1)
+            del li1
             li1 = list()
         else:
             li1.append(li[i])
+
+    setl = set(li1)
+    del li1
+    li1 = list(setl)
+    li2.append(li1)
+
+    for i in range(len(li2)):
+        count += len(li2[i])
 
     print(count)
                 
