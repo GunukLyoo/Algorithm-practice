@@ -3,30 +3,30 @@ import sys
 if __name__ == '__main__':
     n, d, k, c = map(int, sys.stdin.readline().split())
     li = list()
-    lp = 0
     rp = k
 
     for i in range(n):
         li.append(int(sys.stdin.readline()))
 
-    for i in range(k-1):
-        li.append(li[i])
-
     check = list()
 
-    for i in range(k):
-        li2 = list()
-        li2.append(li[i])
+    li2 = li[0:k]
     li2.append(c)
     check.append(len(set(li2)))
+    li2.pop()
+    rp += 1
 
     for i in range(1, n):
+        if i + k == n:
+            rp = 0
         del li2[0]
-        li2.append(li2[rp])
-
+        li2.append(li[rp-1])
         li2.append(c)
         check.append(len(set(li2)))
-        del li2
+        li2.pop()
+        rp += 1
+
+    print(check)
 
 
     max = check[0]
