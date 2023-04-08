@@ -4,6 +4,7 @@ if __name__ == '__main__':
     n, d, k, c = map(int, sys.stdin.readline().split())
     li = list()
     rp = k
+    lp = 0
 
     for i in range(n):
         li.append(int(sys.stdin.readline()))
