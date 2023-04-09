@@ -12,6 +12,8 @@ if __name__ == '__main__':
     check = list()
 
     li2 = li[0:k]
+    li3 = li[0:k-1] + li[n-1:n]
+    print(li3)
     li2.append(c)
     check.append(len(set(li2)))
     li2.pop()
