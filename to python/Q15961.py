@@ -19,6 +19,8 @@ if __name__ == '__main__':
     rp += 1
 
     while lp + k != rp:
+        if lp < 0 and -lp <k:
+            lp = n-1
         
 
     for i in range(1, n):
