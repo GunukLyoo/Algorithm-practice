@@ -20,4 +20,9 @@ if __name__ == '__main__':
     for i in range(n):
         if dfs[i][0] == v:
             p = i
-    
+            break
+
+    dfsd = list()
+
+    while len(dfsd) != n:
+        
