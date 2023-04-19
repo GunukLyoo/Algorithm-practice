@@ -1,10 +1,9 @@
 def solution(players, callings):
     answer = []
-    for i in callings:
-        x = players.index(i)
-        bf = players[x-1]
-        players[x-1] = i
-        players[x] = bf
+    count = 1
+    for i in range(1, len(callings)):
+        if players[i-1] == players[i]:
+            count += 1
         
     answer = players
     
