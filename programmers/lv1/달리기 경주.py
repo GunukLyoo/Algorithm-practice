@@ -1,6 +1,5 @@
 def solution(players, callings):
     answer = []
-    sc = callings.sort()
     count = 1
     for i in range(1, len(callings)):
         if players[i-1] == players[i]:
