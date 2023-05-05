@@ -1,5 +1,6 @@
 def solution(players, callings):
     answer = []
+    count = 0
 
     for i in range(len(callings)):
         for j in range(1, len(players)):
