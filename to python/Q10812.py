@@ -21,7 +21,5 @@ if __name__ == '__main__':
                 arr1.append(arr[j])
         arr = arr1
         del arr1
-        
-
-    for i in range(n):
-        print(arr[i], end=' ')
+    
+    print(*arr)
