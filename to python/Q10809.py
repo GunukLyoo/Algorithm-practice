@@ -13,13 +13,6 @@ if __name__ == "__main__":
         if loc[ord(arr[i]) - 97] == -1:
                loc[ord(arr[i]) - 97] = i
 
-
-
-    arr1 = ''
-
-    for i in range(26):
-        arr1 += (str(loc[i]) + " ")
-
-    print(arr1)
+    print(*loc)
     
      
