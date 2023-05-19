@@ -4,12 +4,9 @@ if __name__ == "__main__":
 
     n = int(sys.stdin.readline())
 
-    num = list(sys.stdin.readline())
+    num = list(map(int, sys.stdin.readline().strip()))
 
-    sum = 0
-
-    for i in range(n):
-        sum += int(num[i])
+    sum = sum(num)
 
     print(sum)
      
