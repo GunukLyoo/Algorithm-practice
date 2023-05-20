@@ -1,5 +1,6 @@
+import math
 
 if __name__ == "__main__":
-    a, b = map(int, input().split())
-    sum = a * b
-    print(sum)
+    a = list(map(int, sys.stdin.readline().split()))
+    m = math.prod(a)
+    print(m)
