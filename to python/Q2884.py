@@ -1,6 +1,7 @@
+import sys
 
 if __name__ == "__main__":
-    a, b = map(int, input().split())
+    a, b = map(int, sys.stdin.readline().split())
 
     if(b - 45 < 0):
         m = 60-(45 - b)
