@@ -1,5 +1,7 @@
+import sys
+
 if __name__ == "__main__":
-    a, b, c = map(int, input().split())
+    a, b, c = map(int, sys.stdin.readline().split())
     
     if a == b:
         if a == c:
