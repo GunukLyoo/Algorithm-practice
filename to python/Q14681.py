@@ -1,7 +1,8 @@
+import sys
 
 if __name__ == "__main__":
-    x = int(input())
-    y = int(input())
+    x = int(sys.stdin.readline())
+    y = int(sys.stdin.readline())
     if x > 0 and y > 0:
         print("1")
     elif x < 0 and y > 0:
