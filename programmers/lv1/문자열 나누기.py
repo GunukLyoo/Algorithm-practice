@@ -21,7 +21,9 @@ def solution(s):
                 
             if i == len(s)-1:
                 answer += 1
+                s = ''
                 break
+
                     
         if len(s) == 1:
             answer += 1
