@@ -8,12 +8,12 @@ def solution(keymap, targets):
         try:
             for j in range(len(targets[i])):
                 for k in range(len(keymap)):
-                    x[k] = keymap[k].index(targets[j])
-                x = sorted(x)
-                count += x[0]
-            answer += count
+                    #index 쓰니 안됨
+                #x = sorted(x)
+                #count += x[0]
+            answer.append(count)
             count = 0
         except ValueError:
-            answer += -1
+            answer.append(-1)
     
     return answer
