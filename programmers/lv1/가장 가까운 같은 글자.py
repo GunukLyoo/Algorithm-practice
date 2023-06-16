@@ -8,5 +8,5 @@ def solution(s):
             dc[s[i]] = i
         else:
             answer.append(-1)
-            dc[s[i]] = -1
+            dc[s[i]] = i
     return answer
