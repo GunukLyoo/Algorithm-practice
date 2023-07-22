@@ -1,18 +1,17 @@
 def solution(players, callings):
     answer = []
-    bf = [[players[i],i+1] for i in range(len(players))]
+    dct = {players[i]:i+1 for i in range(len(players))}
     ix = 0
     for i in callings:
-        for j in range(len(bf)):
-            if bf[j][0] == i:
-                ix = bf[j][1]
-                for k in range(len(bf)):
-                    if bf[k][1] == ix-1:
-                        bf[k][1] += 1
-                bf[j][1] -= 1
-        
-    bf.sort(key = lambda x:x[1])
+        ix = dct[i]
+        for key, val in dct.items():
+            if ix - 1 == val:
+                dct[key] += 1
+                break
+        dct[i] -= 1
     
-    answer = [bf[i][0] for i in range(len(bf))]
+    dct = sorted(dct.items(), key = lambda item: item[1])
+    
+    answer = [i[0] for i in dct]
     
     return answer
