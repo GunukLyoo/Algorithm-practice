@@ -1,9 +1,15 @@
 def solution(today, terms, privacies):
     answer = []
-    li = [i.split(" ") for i in terms]
+    li = {i.split(" ")[0]:i.split(" ")[1] for i in terms}
+    t = 0
     print(li)
     
     p = [i.replace('.', ' ') for i in privacies]
     lip = [i.split(" ") for i in p]
     print(lip)
+    
+    for i in range(len(lip)):
+        t = li[lip[i][3]]
+        print(t)
+        
     return answer
