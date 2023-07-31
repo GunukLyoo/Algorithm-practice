@@ -11,5 +11,10 @@ def solution(today, terms, privacies):
     for i in range(len(lip)):
         t = li[lip[i][3]]
         print(t)
+        lip[i][1] += t
+        if lip[i][1] > 12:
+            lip[i][0] += 1
+            lip[i][1] -= 12
+    print(lip)
         
     return answer
