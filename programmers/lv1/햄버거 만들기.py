@@ -1,6 +1,7 @@
 def solution(ingredient):
     answer = 0
     rec = "1231"
+    rec1 = [1,2,3,1]
     st = ""
     for i in ingredient:
         st += str(i)
