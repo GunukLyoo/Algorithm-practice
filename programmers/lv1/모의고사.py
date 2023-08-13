@@ -34,5 +34,7 @@ def solution(answers):
         answer.append(2)
         if s[0][1] == s[2][1]:
             answer.append(3)
+            
+    answer.sort()
     
     return answer
