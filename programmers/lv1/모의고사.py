@@ -1,7 +1,9 @@
 def solution(answers):
     answer = []
     p = [[1,2,3,4,5],[2,1,2,3,2,4,2,5],[3,3,1,1,2,2,4,4,5,5]]
-    c1 = c2 = c3 = 0
+    c1 = 0
+    c2 = 0
+    c3 = 0
     s = {1:0, 2:0,3:0}
     
     for i in range(len(answers)):
@@ -28,13 +30,11 @@ def solution(answers):
             c3 = 0
     
     s = sorted(s.items(), key = lambda x: -x[1])
-    answer.append(1)
+    answer.append(s[0][0])
     
     if s[0][1] == s[1][1]:
-        answer.append(2)
+        answer.append(s[1][0])
         if s[0][1] == s[2][1]:
-            answer.append(3)
-            
-    answer.sort()
+            answer.append(s[2][0])
     
     return answer
