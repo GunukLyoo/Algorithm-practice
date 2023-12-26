@@ -1,0 +1,6 @@
+arr1 = input().split(' ')
+arr2 = input().split(' ')
+
+for i in arr1:
+    for j in arr2:
+        print("({0}, {1})".format(i,j), end=' ')
