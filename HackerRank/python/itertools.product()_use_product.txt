@@ -1,0 +1,9 @@
+from itertools import product
+
+arr1 = list(map(int, input().split(' ')))
+arr2 = list(map(int, input().split(' ')))
+
+tp = list(product(arr1, arr2))
+
+for i in tp:
+    print(i, end=' ')
