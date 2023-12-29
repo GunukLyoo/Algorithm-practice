@@ -1,0 +1,17 @@
+# Enter your code here. Read input from STDIN. Print output to STDOUT
+from collections import Counter
+
+n = int(input())
+li = list(map(int, input().split()))
+c = Counter(li)
+t = 0
+
+cn = int(input())
+
+for i in range(cn):
+    li1 = list(map(int, input().split()))
+    if int(c[li1[0]]) > 0:
+        t += li1[1]
+        c[li1[0]] = int(c.get(li1[0])) - 1
+
+print(t)
