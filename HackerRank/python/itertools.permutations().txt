@@ -1,0 +1,12 @@
+from itertools import permutations
+
+li = list(input().split(" "))
+
+ans = list(permutations(li[0], int(li[1])))
+ans = sorted(ans)
+
+for i in ans:
+    t = ''
+    for j in i:
+        t += j
+    print(t)
