@@ -1,0 +1,15 @@
+an = int(input())
+a = list(map(int, input().split(" ")))
+bn = int(input())
+b = list(map(int, input().split(" ")))
+
+sa = set(a)
+sb = set(b)
+
+s = set()
+
+s.update(sa.difference(sb))
+s.update(sb.difference(sa))
+s = sorted(s)
+for i in s:
+    print(i)
