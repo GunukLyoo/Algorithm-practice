@@ -1,0 +1,9 @@
+from itertools import combinations
+
+li = input().split(" ")
+sl = sorted(li[0])
+
+for i in range(int(li[1])):
+    li1 = list(combinations(sl, i+1))
+    for j in li1:
+        print("".join(j))
