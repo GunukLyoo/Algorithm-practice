@@ -1,0 +1,23 @@
+from collections import namedtuple
+
+n = int(input())
+li = ' '.join(input().split())
+li = li.split(" ")
+st = ''
+for i in range(len(li)):
+    if i != len(li)-1:
+        st += li[i]
+        st += ','
+    else:
+        st += li[i]
+
+np = namedtuple('np', st)
+sum = 0
+
+for i in range(n):
+    li2 = ' '.join(input().split())
+    li2 = li2.split(" ")
+    x = np(li2[0], li2[1], li2[2], li2[3])
+    sum += int(x.MARKS)
+
+print(round(sum/n, 2))
