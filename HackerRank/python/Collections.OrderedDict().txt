@@ -1,0 +1,15 @@
+from collections import OrderedDict
+n = int(input())
+
+od = OrderedDict()
+
+for i in range(n):
+    li = input().split()
+    st = ' '.join(li[:-1])
+    try:
+        od[st] = int(od[st]) + int(li[-1])
+    except KeyError:
+        od[st] = li[-1]
+        
+for key, value in od.items():
+    print(key, value)
