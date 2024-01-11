@@ -1,0 +1,18 @@
+from itertools import combinations_with_replacement
+
+li = input().split()
+
+arr = combinations_with_replacement(li[0],int(li[1]))
+
+arr = sorted(arr)
+ans = list()
+
+for i in arr:
+    ar = sorted(i)
+    st = ''.join(ar)
+    ans.append(st)
+
+ans = sorted(ans)
+
+for i in ans:
+    print(i)
