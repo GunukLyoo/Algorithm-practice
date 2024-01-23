@@ -1,0 +1,21 @@
+import java.io.*;
+import java.util.*;
+
+public class Solution {
+
+    public static void main(String[] args) {
+        
+        Scanner sc=new Scanner(System.in);
+        String A=sc.next();
+        
+        StringBuffer sb = new StringBuffer(A);
+        String rv = sb.reverse().toString();
+        
+        if (A.compareTo(rv) == 0){
+            System.out.println("Yes");
+        }else{
+            System.out.println("No");
+        }
+        
+    }
+}
