@@ -6,11 +6,20 @@ public class Solution {
         if(a.length() != b.length()){
             return false;
         }else{
-            char[] arr = a.toLowerCase().toCharArray();
-            char[] arr2 = b.toLowerCase().toCharArray();
-            
+            a = a.toLowerCase();
+            b = b.toLowerCase();
+            char[] arr = a.toCharArray();
+            StringBuffer sb = new StringBuffer(b);
+            for(int i = 0; i < arr.length; i++){
+                int o = sb.indexOf(Character.toString(a.charAt(i)));
+                if(o != -1){
+                    sb.deleteCharAt(o);
+                }else{
+                    return false;
+                }
+            }
         }
-        
+        return true;
     }
 
     public static void main(String[] args) {
