@@ -9,12 +9,27 @@ public class Solution {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         int n = sc.nextInt();
-        int m = 0
-        ArrayList<Integer> arr = new ArrayList<>();
-        ArrayList<Integer> arr1 = new ArrayList<>()
+        ArrayList<Integer>[] arr = new ArrayList[n];
+        sc.nextLine();
         for(int i = 0; i<n;i++){
-            
-            
+            arr[i] = new ArrayList<Integer>();
+            String[] st = sc.nextLine().split(" ");
+            for(int j = 0; j < st.length; j++){
+                arr[i].add(Integer.parseInt(st[j]));
+            }
+        }
+        
+        int m = sc.nextInt();
+        sc.nextLine();
+        for(int i = 0; i<m; i++){
+            String[] st = sc.nextLine().split(" ");
+            int x = Integer.parseInt(st[0]);
+            int y = Integer.parseInt(st[1]);
+            if(arr[x-1].size()-1 < y){
+                System.out.println("ERROR!");
+            }else{
+                System.out.println(arr[x-1].get(y));
+            }
         }
     }
 }
