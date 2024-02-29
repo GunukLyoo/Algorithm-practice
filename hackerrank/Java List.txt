@@ -7,10 +7,36 @@ import java.util.regex.*;
 public class Solution {
 
     public static void main(String[] args) {
-        List<Integer> li = new ArrayList<Integer>();
         Scanner sc = new Scanner(System.in);
         int n = sc.nextInt();
-        String st = sc.nextLine();
-        System.out.println(st);
+        sc.nextLine();
+        List<Integer> arr = new ArrayList<Integer>();
+        String[] str;
+        
+        for(int i = 0; i < n; i++){
+            arr.add(sc.nextInt());
+        }
+        sc.nextLine();
+        
+        int m = sc.nextInt();
+        int x = 0;
+        int y = 0;
+        String s = "";
+        for(int i = 0; i < m; i++){
+            sc.nextLine();
+            s = sc.nextLine();
+            if(s.equals("Insert")){
+                x = sc.nextInt();
+                y = sc.nextInt();
+                arr.add(x, y);
+            }else if(s.equals("Delete")){
+                n = sc.nextInt();
+                arr.remove(n);
+            }
+        }
+        
+        for(int i: arr){
+            System.out.print(i + " ");
+        }
     }
 }
