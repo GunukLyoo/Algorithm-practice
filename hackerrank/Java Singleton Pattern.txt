@@ -1,0 +1,20 @@
+import java.io.*;
+import java.util.*;
+import java.text.*;
+import java.math.*;
+import java.util.regex.*;
+import java.lang.reflect.*;
+
+
+class Singleton{
+    static public String str;
+    private static Singleton INSTANCE = new Singleton();
+    
+    private Singleton(){
+        this.str = "Hello I am a singleton! Let me say hello world to you";
+    }
+    
+    static Singleton getSingleInstance(){
+        return INSTANCE;
+    }
+}
