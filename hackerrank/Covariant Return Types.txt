@@ -12,16 +12,16 @@ class Flower {
 class Jasmine extends Flower{
 }
 
-class Lily {
+class Lily extends Flower{
 }
 
 class Region {
 }
 
-class WestBengal {
+class WestBengal extends Region{
 }
 
-class AndhraPradesh {
+class AndhraPradesh extends Region{
 }
 
 
