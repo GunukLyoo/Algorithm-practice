@@ -10,18 +10,33 @@ class Flower {
 }
 
 class Jasmine extends Flower{
+    public String whatsYourName(){
+        return "Jasmine";
+    }
 }
 
 class Lily extends Flower{
+    public String whatsYourName(){
+        return "Lily";
+    }
 }
 
 class Region {
+    public Flower yourNationalFlower(){
+        return new Flower();
+    }
 }
 
 class WestBengal extends Region{
+    public Flower yourNationalFlower(){
+        return new Jasmine();
+    }
 }
 
 class AndhraPradesh extends Region{
+    public Flower yourNationalFlower(){
+        return new Lily();
+    }
 }
 
 
