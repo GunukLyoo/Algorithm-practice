@@ -1,0 +1,25 @@
+import java.io.*;
+import java.util.*;
+import java.text.*;
+import java.math.*;
+import java.util.regex.*;
+
+public class Solution {
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        int m = sc.nextInt();
+        sc.nextLine();
+        BitSet B1 = new BitSet(n);
+        BitSet B2 = new BitSet(n);
+        
+        for(int i = 0; i < m; i++){
+            String[] st = sc.nextLine().split(" ");
+            switch(st[0]){
+                case "AND":
+                    B1.and(B2);
+            }
+        }
+    }
+}
