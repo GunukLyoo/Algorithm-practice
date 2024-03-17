@@ -19,7 +19,16 @@ public class Solution {
             switch(st[0]){
                 case "AND":
                     B1.and(B2);
+                case "SET":
+                    if(st[1] == "1"){
+                        B1.set(Integer.parseInt(st[2]));
+                    }else{
+                        B2.set(Integer.parseInt(st[2]));
+                    }
             }
         }
+        
+        System.out.println(B1);
+        System.out.println(B2);
     }
 }
