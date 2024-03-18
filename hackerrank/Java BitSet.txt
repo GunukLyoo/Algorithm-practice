@@ -25,6 +25,13 @@ public class Solution {
                     }else{
                         B2.set(Integer.parseInt(st[2]));
                     }
+                case "FLIP":
+                    if(st[1] == "1"){
+                        B1.flip(Integer.parseInt(st[2]));
+                    }else{
+                        B2.flip(Integer.parseInt(st[2]));
+                    }
+                
             }
         }
         
