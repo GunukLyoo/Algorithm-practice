@@ -18,7 +18,11 @@ public class Solution {
             String[] st = sc.nextLine().split(" ");
             switch(st[0]){
                 case "AND":
-                    B1.and(B2);
+                    if(st[1] == "1"){
+                        B1.and(B2);
+                    }else{
+                        B2.and(B1);
+                    }
                 case "SET":
                     if(st[1] == "1"){
                         B1.set(Integer.parseInt(st[2]));
@@ -30,6 +34,12 @@ public class Solution {
                         B1.flip(Integer.parseInt(st[2]));
                     }else{
                         B2.flip(Integer.parseInt(st[2]));
+                    }
+                case "OR":
+                    if(st[1] == "1"){
+                        B1.or(B2);
+                    }else{
+                        B2.or(B1);
                     }
                 
             }
