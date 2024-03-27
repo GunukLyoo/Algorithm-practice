@@ -9,8 +9,8 @@ def solution(s):
             c = 1
         
         for i in range(0, len(st)-1):
-            if st[i] == st[i+1]:
-                s1 += st[i+2:]
+            if st.count(st[i]*2):
+                s1 = st.replace(st[i]*2, '')
                 break
             else:
                 if i == len(st)-2:
