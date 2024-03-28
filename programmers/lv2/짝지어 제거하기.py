@@ -14,8 +14,6 @@ def solution(s):
                 break
             else:
                 if i == len(st)-2:
-                    s1 += st[i]
-                    s1 += st[i+1]
                     c = 0
                     break
                 else:
