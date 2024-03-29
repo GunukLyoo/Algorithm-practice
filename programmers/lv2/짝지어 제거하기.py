@@ -18,6 +18,7 @@ def solution(s):
                     break
                 else:
                     s1 += st[i]
+        print(s1)
         st = s1
         s1 = ""
         
