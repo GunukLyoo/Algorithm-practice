@@ -7,11 +7,12 @@
 char* solution(const char* str_list[], size_t str_list_len, const char* ex) {
     // return 값은 malloc 등 동적 할당을 사용해주세요. 할당 길이는 상황에 맞게 변경해주세요.
     int size = 0;
-    char* answer = (char*)malloc(1);
+    char* answer = (char*)malloc(sizeof(char));
+    answer[0] = NULL;
     for(int i = 0; i < str_list_len; i++){
         if(strstr(str_list[i], ex) == NULL){
             size += strlen(str_list[i]);
-            answer = (char*)realloc(answer, size * sizeof(char));
+            //answer = (char*)realloc(answer, size * sizeof(char));
             strcat(answer, str_list[i]);
         }
     }
