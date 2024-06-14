@@ -1,0 +1,15 @@
+#include <stdio.h>
+#include <stdbool.h>
+#include <stdlib.h>
+
+int solution(int slice, int n) {
+    int answer = 1;
+    int sum = slice;
+    
+    while(n > sum){
+        sum += slice;
+        answer++;
+    }
+    
+    return answer;
+}
