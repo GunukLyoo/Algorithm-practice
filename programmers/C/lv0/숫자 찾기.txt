@@ -1,0 +1,15 @@
+#include <stdio.h>
+#include <stdbool.h>
+#include <stdlib.h>
+
+int solution(int num, int k) {
+    char cn[8];
+    sprintf(cn, "%d", num);
+    int answer = 0;
+    for(int i = 0; i < strlen(cn); i++){
+        if(strcmp(cn[i], ck) == 0){
+            answer = i + 1;
+        }
+    }
+    return answer;
+}
