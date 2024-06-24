@@ -3,13 +3,24 @@
 #include <stdlib.h>
 
 int solution(int num, int k) {
-    char cn[8];
-    sprintf(cn, "%d", num);
     int answer = 0;
-    for(int i = 0; i < strlen(cn); i++){
-        if(strcmp(cn[i], ck) == 0){
+    char c[8];
+    char ck = k + '0';
+    bool check = 0;
+    
+    sprintf(c, "%d", num);
+    
+    for(int i = 0; i < strlen(c); i++){
+        if(c[i] == ck){
             answer = i + 1;
+            check = 1;
+            break;
         }
     }
+    
+    if(check == 0){
+        answer = -1;
+    }
+    
     return answer;
 }
