@@ -1,0 +1,21 @@
+#include <stdio.h>
+#include <stdbool.h>
+#include <stdlib.h>
+
+int solution(int order) {
+    int answer = 0;
+    char arr[8];
+    char li[4];
+    sprintf(arr, "%d", order);
+    sprintf(li, "%d", 369);
+    for(int i = 0; i < strlen(arr); i++){
+        if(arr[i] == li[0]){
+            answer++;
+        }else if(arr[i] == li[1]){
+            answer++;
+        }else if(arr[i] == li[2]){
+            answer++;
+        }
+    }
+    return answer;
+}
