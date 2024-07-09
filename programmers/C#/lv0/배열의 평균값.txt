@@ -1,0 +1,13 @@
+using System;
+
+public class Solution {
+    public double solution(int[] numbers) {
+        double answer = 0;
+        int len = numbers.Length;
+        for(int i = 0; i < len; i++){
+            answer += numbers[i];
+        }
+        answer /= len;
+        return answer;
+    }
+}
